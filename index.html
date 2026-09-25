@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>加密笔记</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 横幅：隐私模式 / 配额降级 / 轮换进度 -->
+  <div id="banners"></div>
+
+  <!-- 锁屏 -->
+  <div id="lock-screen" class="hidden">
+    <div class="lock-card">
+      <h1>🔒 加密笔记</h1>
+      <p id="lock-subtitle">输入密码解锁</p>
+      <input id="password" type="password" placeholder="密码" autocomplete="current-password" />
+      <input id="password-confirm" type="password" placeholder="确认密码" class="hidden" autocomplete="new-password" />
+      <p id="lock-error" class="error hidden"></p>
+      <button id="unlock-btn">解锁</button>
+    </div>
+  </div>
+
+  <!-- 主界面 -->
+  <div id="main-screen" class="hidden">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <button id="new-note-btn" title="新建笔记">＋ 新建</button>
+      </div>
+      <ul id="note-list"></ul>
+      <div class="sidebar-footer">
+        <button id="rotate-btn" title="生成新数据密钥并重加密全部笔记">轮换密钥</button>
+        <button id="passwd-btn" title="修改解锁密码">修改密码</button>
+        <button id="lock-btn" title="锁定">锁定</button>
+      </div>
+    </aside>
+    <main id="editor">
+      <div id="editor-empty">选择或新建一条笔记</div>
+      <div id="editor-form" class="hidden">
+        <input id="note-title" type="text" placeholder="标题" />
+        <textarea id="note-body" placeholder="内容…"></textarea>
+        <div class="editor-footer">
+          <span id="save-status"></span>
+          <button id="delete-note-btn" class="danger">删除</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "encnotes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "本地加密笔记：Web Crypto + IndexedDB + Web Worker",
+  "scripts": {
+    "test": "node test/smoke.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}
