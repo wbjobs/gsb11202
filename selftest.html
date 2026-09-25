@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>加密笔记 — 验收自测</title>
+  <style>
+    body { font-family: -apple-system, "PingFang SC", monospace; background: #0f1420; color: #e6eaf2; padding: 24px; }
+    h1 { font-size: 20px; }
+    h2 { font-size: 15px; margin: 18px 0 6px; color: #8b95ab; }
+    .pass { color: #5fd68b; }
+    .fail { color: #e5534b; }
+    #summary { font-size: 16px; font-weight: 600; margin-top: 16px; }
+    div { line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <h1>验收自测（真实 Web Worker + Web Crypto + IndexedDB）</h1>
+  <div id="out"></div>
+  <div id="summary"></div>
+  <script src="js/crypto-core.js"></script>
+  <script src="js/crypto-worker.js"></script>
+  <script src="js/crypto-client.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/vault.js"></script>
+  <script src="js/selftest.js"></script>
+</body>
+</html>

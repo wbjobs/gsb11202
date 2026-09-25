@@ -1,0 +1,10 @@
+{
+  "name": "encrypted-notes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地加密笔记：Web Crypto + IndexedDB + Web Worker",
+  "scripts": {
+    "test": "node test/node-smoke.cjs",
+    "start": "python3 -m http.server 8000"
+  }
+}

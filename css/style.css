@@ -1,0 +1,160 @@
+:root {
+  --bg: #0f1420;
+  --panel: #1a2233;
+  --panel-2: #222c42;
+  --text: #e6eaf2;
+  --muted: #8b95ab;
+  --accent: #4f8cff;
+  --danger: #e5534b;
+  --warn: #d9a13b;
+  --border: #2c3a56;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  overflow: hidden;
+}
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.error { color: var(--danger); font-size: 13px; }
+.spacer { flex: 1; }
+
+/* 锁屏 / 弹窗卡片 */
+#lock-screen, #fatal, .modal {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+}
+.modal { background: rgba(0,0,0,.55); z-index: 30; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  width: 360px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.card h1 { font-size: 22px; margin: 0; }
+.card h2 { font-size: 18px; margin: 0; }
+
+input[type="password"] {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+input[type="password"]:focus { border-color: var(--accent); }
+
+button {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.danger { color: var(--danger); }
+.row { display: flex; gap: 8px; justify-content: flex-end; }
+
+.badge {
+  font-size: 11px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px 8px;
+  color: var(--muted);
+}
+.badge.warn { color: var(--warn); border-color: var(--warn); }
+
+/* 主界面 */
+#main-screen { display: flex; flex-direction: column; height: 100vh; }
+header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-weight: 600; margin-right: 8px; }
+
+.banner {
+  padding: 8px 16px;
+  font-size: 13px;
+  display: flex; align-items: center; gap: 12px;
+}
+.warn-banner { background: #3a2f14; color: var(--warn); }
+.error-banner { background: #3d1d1b; color: #f0a49e; }
+
+#progress-area {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 16px;
+  font-size: 13px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+.progress {
+  flex: 1; height: 6px;
+  background: var(--panel-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+#progress-bar { height: 100%; width: 0; background: var(--accent); transition: width .15s; }
+
+#toast {
+  position: fixed; top: 56px; left: 50%; transform: translateX(-50%);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  z-index: 20;
+}
+
+.layout { flex: 1; display: flex; min-height: 0; }
+aside {
+  width: 240px;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  background: var(--panel);
+}
+.note-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.note-item:hover { background: var(--panel-2); }
+.note-item.active { background: var(--panel-2); border-left: 3px solid var(--accent); }
+.note-item .time { color: var(--muted); font-size: 11px; margin-top: 4px; }
+.note-item .legacy-tag { color: var(--warn); font-size: 11px; }
+
+#editor-area { flex: 1; display: flex; flex-direction: column; }
+#empty-state { flex: 1; display: flex; align-items: center; justify-content: center; }
+#editor {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: var(--text);
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  font-family: inherit;
+}
+#editor-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+}
